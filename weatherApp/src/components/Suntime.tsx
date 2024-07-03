@@ -26,15 +26,15 @@ function Suntime({ sunrise, sunset}: Props) {
       <div className="flex flex-col items-center lg:items-start">
         <h3 className="text-xs lg:text-lg font-semibold pb-2">Sunrise</h3>
         <div className="flex flex-row items-center gap-2">
-          <Sun color="#ffffff" className="h-auto w-auto lg:h-7 lg:w-7" />
-          <p className="text-sm lg:text-xl">{formatTime(sunrise)}</p>
+          <Sun color="#ffffff" className="h-auto w-auto lg:h-8 lg:w-8 hover:animate-spin" />
+          <p className="text-sm sm:text-xl md:text-2xl xl:text-3xl">{formatTime(sunrise)}</p>
         </div>
       </div>
       <div className="flex flex-col items-center lg:items-start">
         <h3 className="text-xs lg:text-lg font-semibold pb-2">Sunset</h3>
         <div className="flex flex-row items-center gap-2">
-          <Moon color="#ffffff" className="h-auto w-auto lg:h-7 lg:w-7" />
-          <p className="text-sm lg:text-xl">{formatTime(sunset)}</p>
+          <Moon color="#ffffff" className="h-auto w-auto lg:h-8 lg:w-8" />
+          <p className="text-sm sm:text-xl md:text-2xl xl:text-3xl">{formatTime(sunset)}</p>
         </div>
       </div>
     </div>

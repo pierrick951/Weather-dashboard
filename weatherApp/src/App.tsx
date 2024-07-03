@@ -4,8 +4,8 @@ import Forecast from "./components/Forecast";
 import Localisation from "./components/Localisation";
 import Temp from "./components/Temp";
 import Suntime from "./components/Suntime";
-// import Windstats from './components/Windstats'
-import Humidity from "./components/Humidity";
+import Windstats from './components/Windstats'
+import Humidity from './components/Humidity';
 
 import "./App.css";
 
@@ -97,7 +97,7 @@ export default function App({}: Props) {
           <Cloudy color="#ffffff" className="mr-2 " />
           <h1 className="flex flex-row  text-gray-100 text-xl  sm:text-3xl font-semibold font-mono">
             <span>
-              <span className="text-red-400">K</span>umori
+              <span className="text-indigo-400">K</span>umori
             </span>
           </h1>
         </div>
@@ -108,7 +108,7 @@ export default function App({}: Props) {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="Enter city name"
-            className="bg-transparent placeholder-white outline-none text-gray-100 font-mono px-3 py-2 sm:text-sm "
+            className="bg-transparent placeholder-white outline-none text-gray-100  px-3 py-2 sm:text-sm lg:text-xl w-[200px] "
           />
         </div>
       </header>
@@ -119,7 +119,7 @@ export default function App({}: Props) {
               <p className="text-center  text-xl  text-gray-50">No Data</p>
             ) : (
               <>
-                <h2 className="text-2xl font-mono font-bold text-red-400">Now</h2>
+                <h2 className="text-2xl font-mono font-bold text-indigo-400">Now</h2>
                 <div>
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-4xl">{weather.main.temp.toFixed(1)}°C</p>
@@ -157,14 +157,14 @@ export default function App({}: Props) {
 
         <div className="flex flex-col w-full gap-4">
           <div className="bg-zinc-800 rounded-xl p-4 text-white">
-            <h2 className="text-xl font-mono font-bold text-red-400 pb-3">
+            <h2 className="text-xl font-mono font-bold text-indigo-400 pb-3">
               Today's Highlights
             </h2>
             {isLoading ? (
               <p className="text-center  text-xl text-gray-50"> No data</p>
             ) : (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+                <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
                   <div className="flex flex-row gap-2 flex-wrap">
                     <Temp
                       tempmin={weather.main.temp_min}
@@ -178,18 +178,17 @@ export default function App({}: Props) {
                     />
                   </div>
                   <div className="flex flex-row gap-2 ">
-                  <Humidity/>
+                  <Humidity humide={weather.main.humidity}/>
+                  <Windstats  windspeed={weather.wind.speed}/>
                   </div>
-                  <div className="flex flex-row gap-2 ">
-                   {/* <Windstats/> */}
-                  </div>
+                
                 </div>
               </>
             )}
           </div>
 
           <div className="bg-zinc-800 rounded-xl p-4 text-gray-100">
-            <h2 className="text-xl font-mono font-bold text-red-400">Today's Forecast</h2>
+            <h2 className="text-xl font-mono font-bold text-indigo-400">Today's Forecast</h2>
             <div className="grid grid-cols-4 gap-4"></div>
           </div>
         </div>
