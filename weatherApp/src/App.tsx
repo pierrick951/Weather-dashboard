@@ -5,11 +5,49 @@ import "./App.css";
 
 const APIKEY = import.meta.env.VITE_WEATHER_API_KEY;
 
+interface Clouds {
+  all: number;
+}
+
+interface Coord {
+  lat: number;
+  lon: number;
+}
+
+interface Main {
+  temp: number;
+  feels_like: number;
+  temp_min: number;
+  temp_max: number;
+  humidity: number;
+}
+
+interface Sys {
+  country: string;
+}
+
+interface Weather {
+  description: string;
+  icon: string;
+  main: string;
+}
+
+interface WeatherData {
+  name: string;
+  weather: Weather[]; // Weather est un tableau
+  main: Main;
+  coord: Coord;
+  clouds: Clouds;
+  sys: Sys;
+}
+
+
+
 type Props = {};
 
 export default function App({}: Props) {
   const [weather, setWeather] = useState<any>("");
-  const [city, setCity] = useState<string>("");
+  const [city, setCity] = useState<string>("Tokyo");
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -54,67 +92,41 @@ export default function App({}: Props) {
         </div>
       </header>
       <main className="w-full h-auto mt-3 flex flex-col lg:flex-row gap-4">
-        {/* Sidebar */}
+  
         <div className="flex flex-col lg:w-1/4 gap-4">
-          {/* Now */}
+      
           <div className="bg-zinc-700 rounded-xl p-4 text-white">
-            <h2 className="text-2xl">Now</h2>
-            <p>5°C</p>
-            <p>Broken Clouds</p>
+            <h2 className="text-2xl font-mono">Now</h2>
+
+            <div className="flex flex-row items-center">
+              <p className="text-2xl">{weather.main.temp}°C</p>
+              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} alt="Weather icon"  className="w-19 object-contain"/>
+            </div>
+            <p>{weather.weather[0].description}</p>
+            <p>{weather.name}</p>
           </div>
-          {/* 5 Days Forecast */}
-          <div className="bg-zinc-700 rounded-xl p-4 text-white">
-            <h2 className="text-2xl">5 Days Forecast</h2>
-            <h2 className="text-2xl">5 Days Forecast</h2>
-            <h2 className="text-2xl">5 Days Forecast</h2>
+   
+        
+        
             
             <Forecast />
-          </div>
+         
         </div>
-        {/* Main Content */}
+ 
         <div className="flex flex-col w-full gap-4">
-          {/* Today's Highlights */}
+
           <div className="bg-zinc-700 rounded-xl p-4 text-white">
-            <h2 className="text-2xl">Today's Highlights</h2>
+            <h2 className="text-2xl font-mono">Today's Highlights</h2>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-zinc-800 p-2 rounded-lg">
-                <p>Air Quality Index</p>
-                <p>3.90</p>
-              </div>
-              <div className="bg-zinc-800 p-2 rounded-lg">
-                <p>Humidity</p>
-                <p>82%</p>
-              </div>
-              <div className="bg-zinc-800 p-2 rounded-lg">
-                <p>Pressure</p>
-                <p>1025hPa</p>
-              </div>
-              <div className="bg-zinc-800 p-2 rounded-lg">
-                <p>Visibility</p>
-                <p>10km</p>
-              </div>
-              <div className="bg-zinc-800 p-2 rounded-lg">
-                <p>Sunrise</p>
-                <p>6:46 AM</p>
-              </div>
-              <div className="bg-zinc-800 p-2 rounded-lg">
-                <p>Sunset</p>
-                <p>5:39 PM</p>
-              </div>
+             
+             
             </div>
           </div>
-          {/* Today's Forecast */}
+  
           <div className="bg-zinc-700 rounded-xl p-4 text-white">
             <h2 className="text-2xl">Today's Forecast</h2>
             <div className="grid grid-cols-4 gap-4">
-              <div className="bg-zinc-800 p-2 rounded-lg">12 AM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">3 AM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">6 AM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">9 AM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">12 PM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">3 PM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">6 PM</div>
-              <div className="bg-zinc-800 p-2 rounded-lg">9 PM</div>
+            
             </div>
           </div>
         </div>
