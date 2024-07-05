@@ -7,6 +7,7 @@ import Temp from "./components/Temp";
 import Suntime from "./components/Suntime";
 import Windstats from "./components/Windstats";
 import Humidity from "./components/Humidity";
+import DailyForecast from "./components/DailyForecast";
 
 import "./App.css";
 
@@ -92,9 +93,10 @@ export default function App() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [forecastData, setForecastData] = useState<ForecastData | null>(null);
   const [dailyForecast, setDailyForecast] = useState<ForecastListItem[]>([]);
+  const [dayForecast, setDayForecast] = useState<ForecastListItem[]>([]);
   const [city, setCity] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  console.log(forecastData);
   useEffect(() => {
     const fetchWeatherandForecast = async () => {
       try {
@@ -125,6 +127,12 @@ export default function App() {
           (item) => new Date(item.dt_txt).getHours() === 12
         );
 
+        const firstThreeForecasts: ForecastListItem[] = forecastData.list.slice(
+          0,
+         6
+        );
+
+        setDayForecast(firstThreeForecasts);
         setForecastData(forecastData);
         setDailyForecast(dailyForecastData);
         setIsLoading(false);
@@ -144,7 +152,8 @@ export default function App() {
       clearTimeout(debounceFetchWeather);
     };
   }, [city]);
-  console.log(dailyForecast);
+
+
 
   return (
     <div className="App min-h-screen bg-zinc-950 bg-cover bg-fixed px-4 xl:p-10">
@@ -157,20 +166,21 @@ export default function App() {
             </span>
           </h1>
         </div>
-        <div className="flex flex-row items-center  bg-zinc-800 px-4 rounded-xl sm:mx-auto  ">
+        <div className="flex flex-row items-center  bg-zinc-800 px-4 rounded-xl sm:mx-auto xl:w-80 ">
           <Search color="#ffffff" className="w-4" />
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="Enter city name"
-            className="bg-transparent placeholder-white outline-none text-gray-100  px-3 py-2 sm:text-sm lg:text-xl w-[200px] "
+            className="bg-transparent placeholder-white outline-none text-gray-100  px-3 py-2 sm:text-sm lg:text-xl w-auto "
           />
         </div>
+        {/* <button className="text-white">clic</button> */}
       </header>
       {isLoading ? (
         <div className="w-full  h-[500px]  flex  flex-col items-center justify-center ">
-          <div className="flex  flex-col items-sart">
+          <div className="flex  flex-col items-sart xl:translate-x-7">
             <div className="flex flex-row items-center">
               <h1 className="text-white text-4xl  lg:text-6xl font-bold flex flex-col">
                 <span>
@@ -240,17 +250,21 @@ export default function App() {
               </div>
 
               <div className="h-50 min-w-70 bg-zinc-900 rounded-xl h-auto p-4 text-white">
-                <h3 className="text-xl font-mono font-bold text-indigo-400 ">
+                <h3 className="text-xl font-mono font-bold text-indigo-400 pb-3 ">
                   5 days Forecast
                 </h3>
                 {!isLoading && (
-                  <ul className="w-full flex flex-col gap-2">
+                  <ul
+                    className="w-full grid grid-cols-2 lg:grid-cols-1 xl:grid-cols-2
+                   gap-2"
+                  >
                     {dailyForecast.map((item) => (
                       <WeeklyForce
                         key={item.dt}
                         dateo={item.dt_txt}
                         temp={item.main.temp}
                         icon={item.weather[0].icon}
+                      
                       />
                     ))}
                   </ul>
@@ -290,13 +304,27 @@ export default function App() {
               </div>
 
               <div className="bg-zinc-900 rounded-xl p-4 text-gray-100">
-                <h2 className="text-xl font-mono font-bold text-indigo-400">
+                <h2 className="text-xl font-mono font-bold text-indigo-400 pb-2">
                   Today's Forecast
                 </h2>
 
-                <div className="grid grid-cols-8 gap-4">
-                  {isLoading ? <p>Loading...</p> : <>saluut la compagnie</>}
-                </div>
+                {!isLoading && (
+                  <ul
+                    className="w-full grid grid-col-1 lg:grid-cols-2 sm:grid-cols-3 
+                   gap-1 "
+                  >
+                    {dayForecast.map((item) => (
+                      <DailyForecast
+                        key={item.dt}
+                        dateo={item.dt_txt}
+                        temp={item.main.temp}
+                        icon={item.weather[0].icon}
+                        desc={item.weather[0].description}
+                        feel={item.main.feels_like}
+                      />
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </main>
