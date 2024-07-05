@@ -8,6 +8,7 @@ import Suntime from "./components/Suntime";
 import Windstats from "./components/Windstats";
 import Humidity from "./components/Humidity";
 import DailyForecast from "./components/DailyForecast";
+// import Getlocal from "./components/Getlocal";
 
 import "./App.css";
 
@@ -166,17 +167,17 @@ export default function App() {
             </span>
           </h1>
         </div>
-        <div className="flex flex-row items-center  bg-zinc-800 px-4 rounded-xl sm:mx-auto xl:w-80 ">
+        <div className="flex flex-row items-center w-auto  bg-zinc-800 px-3 rounded-xl sm:mx-auto xl:w-[500px] ">
           <Search color="#ffffff" className="w-4" />
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="Enter city name"
-            className="bg-transparent placeholder-white outline-none text-gray-100  px-3 py-2 sm:text-sm lg:text-xl w-auto "
+            className="bg-transparent placeholder-white outline-none text-gray-100  px-3 py-2 sm:text-sm lg:text-xl xl:w-[500px] w-auto "
           />
         </div>
-        {/* <button className="text-white">clic</button> */}
+        {/* <button className="bg-gradient-to-br from-indigo-500 to-indigo-400 shadow-2xl animate-pulse p-2 rounded-xl"><Getlocal/></button> */}
       </header>
       {isLoading ? (
         <div className="w-full  h-[500px]  flex  flex-col items-center justify-center ">

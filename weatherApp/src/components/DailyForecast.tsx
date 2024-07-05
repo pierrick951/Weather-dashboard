@@ -32,8 +32,8 @@ const DailyForecast: React.FC<Props> = ({ dateo, temp, icon ,desc,feel}) => {
           <p className="text-sm md:text-lg lg:text:xl xl:text-2xl font-mono  text-white">{temp.toFixed(0)}°C</p>
           <img src={`http://openweathermap.org/img/wn/${icon}.png`} alt=""  className="w-auto h-auto lg:w-20 lg-h-20"/>
         </div>
-        <div>
-          <p className="text-bold text-xl pb-2 xl:text-3xl">{desc}</p>
+        <div className="flex flex-col justify-start">
+          <p className="text-bold text-xl pb-2 xl:text-3xl ">{desc}</p>
           <p className="flex gap-3 text-gray-200 font-mono text-sm ">
             <span>Feel Like</span>
             <span>{feel.toFixed(1)}°C</span>
