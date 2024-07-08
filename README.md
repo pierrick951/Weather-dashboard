@@ -46,8 +46,8 @@ To start the project locally, run:
 
 ## Contact
 Feel free to reach out:
-•[Email](bernard.pierrick0@gmail.com)
-•[Linkedin](https://www.linkedin.com/in/pierrick-bernard-etuve/)
+- •[Email](bernard.pierrick0@gmail.com)
+- •[Linkedin](https://www.linkedin.com/in/pierrick-bernard-etuve/)
 
 ## License
 
