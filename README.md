@@ -11,7 +11,14 @@ This weather dashboard is built using the [OpenWeatherMap API](https://openweath
 Deployed on Vercel.
 
 ## Features
-The dashboard allows you to display various data from the API such as sunrise/sunset times, humidity, "feels like" temperature, and min/max temperatures. It also provides hourly and 5-day forecasts.
+The dashboard allows you to display various data from the API such as :
+
+- sunrise/sunset
+- Times
+-  Humidity
+-  Feels like
+-  Temperature and min/max
+-  It also provides hourly and 5-day forecasts.
 
 ## Installation
 
