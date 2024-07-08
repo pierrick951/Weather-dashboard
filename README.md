@@ -25,7 +25,7 @@ The dashboard allows you to display various data from the API such as sunrise/su
    npm install
 
    
-##Getting Started
+## Getting Started
 To start the project locally, run:
 
 1.Fork the project
@@ -36,7 +36,7 @@ To start the project locally, run:
 6.Create a new Pull Request
 
 
-##Contact
+## Contact
 Feel free to reach out:
 •[Email](bernard.pierrick0@gmail.com)
 •[Linkedin](https://www.linkedin.com/in/pierrick-bernard-etuve/)
