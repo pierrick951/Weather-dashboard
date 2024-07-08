@@ -48,3 +48,8 @@ To start the project locally, run:
 Feel free to reach out:
 •[Email](bernard.pierrick0@gmail.com)
 •[Linkedin](https://www.linkedin.com/in/pierrick-bernard-etuve/)
+
+##License
+
+This project is licensed under the MIT License.
+
