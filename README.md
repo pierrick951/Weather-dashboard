@@ -28,7 +28,8 @@ The dashboard allows you to display various data from the API such as :
    git clone https://github.com/pierrick951/Weather-dashboard
    
 2. Navigate to your project directory:
- '''cd Weather-dashboard
+ '''bash
+   cd Weather-dashboard
    npm install
 
    
