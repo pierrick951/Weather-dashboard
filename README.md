@@ -29,8 +29,8 @@ The dashboard allows you to display various data from the API such as :
    
 2. Navigate to your project directory:
 
-   -cd Weather-dashboard
-   -npm install
+   - cd Weather-dashboard
+   - npm install
 
    
 ## Getting Started
