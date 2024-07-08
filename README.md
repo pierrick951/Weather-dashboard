@@ -28,12 +28,12 @@ The dashboard allows you to display various data from the API such as sunrise/su
 ## Getting Started
 To start the project locally, run:
 
-1.Fork the project
-2.Create a new branch (git checkout -b feature_improvement)
-3.Make your changes
-4.Commit your changes (git commit -am 'Added some awesome feature')
-5.Push to the branch (git push origin feature_improvement)
-6.Create a new Pull Request
+- 1.Fork the project
+- 2.Create a new branch (git checkout -b feature_improvement)
+- 3.Make your changes
+- 4.Commit your changes (git commit -am 'Added some awesome feature')
+- 5.Push to the branch (git push origin feature_improvement)
+- 6.Create a new Pull Request
 
 
 ## Contact
