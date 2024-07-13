@@ -1,12 +1,10 @@
 import { MapPin } from "lucide-react";
 
-// Définir les types des props
 interface Props {
   cityname: string;
   country: string;
 }
 
-// Utilisation des props dans le composant
 function Localisation({ cityname, country }: Props) {
   return (
     <div>
